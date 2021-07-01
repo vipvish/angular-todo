@@ -1,0 +1,12 @@
+<div class="my-4 todo-left">
+    <h4 [ngClass]="{'strike': !todo.active}">{{todo.title}}</h4>
+    <p [ngClass]="{'strike': !todo.active}">{{todo.desc}}</p>
+    <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="todo{{i}}" (click)="onCheckBoxClick(todo)" [checked]="!todo.active">
+        <label class="form-check-label" for="todo{{i}}">
+            <div *ngIf="todo.active === false; else elseBlock">Remove</div>
+            <ng-template #elseBlock>Mark as Done</ng-template>
+        </label>
+    </div>
+    <button class="btn btn-danger" (click)="onClick(todo)" style="margin-top: 5px;">Delete</button>
+</div>

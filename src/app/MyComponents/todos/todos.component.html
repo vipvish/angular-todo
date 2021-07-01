@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        
+        <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+        
+        <div *ngIf="this.todos.length === 0; else elseBlock"><h4>No Todo list Found..</h4></div>
+        
+        <ng-template #elseBlock>
+            <ul *ngFor="let todo of todos; index as i">
+                <app-todo-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)"></app-todo-item>
+            </ul>
+        </ng-template>
+
+    </div>
+</div>
