@@ -1,5 +1,6 @@
 import { Todo } from './../../Todo';
 import { Component, OnInit } from '@angular/core';
+import {TodoDataService} from '../services/todo-data.service'
 
 @Component({
   selector: 'app-todos',
@@ -11,7 +12,12 @@ export class TodosComponent implements OnInit {
   localItem: string;
   todos: Todo[];
   
-  constructor() {
+  constructor(private todoData: TodoDataService) {
+    
+    // this.todoData.getData().subscribe(data => {
+    //   console.log(data);
+    //   this.todos = data
+    // })
 
     this.localItem = localStorage.getItem("todos")!;
    

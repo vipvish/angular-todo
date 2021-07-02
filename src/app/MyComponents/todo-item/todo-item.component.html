@@ -1,6 +1,6 @@
 <div class="my-4 todo-left">
-    <h4 [ngClass]="{'strike': !todo.active}">{{todo.title}}</h4>
-    <p [ngClass]="{'strike': !todo.active}">{{todo.desc}}</p>
+    <h4 [ngClass]="{'strike': !todo.active}">{{todo.title | titleFormate:todo.sno}}</h4>
+    <p [ngClass]="{'strike': !todo.active}">{{todo.desc | titlecase}}</p>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="todo{{i}}" (click)="onCheckBoxClick(todo)" [checked]="!todo.active">
         <label class="form-check-label" for="todo{{i}}">
