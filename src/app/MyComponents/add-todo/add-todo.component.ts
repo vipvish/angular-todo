@@ -1,45 +1,45 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Todo } from '../../Todo';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-todo',
   templateUrl: './add-todo.component.html',
-  styleUrls: ['./add-todo.component.scss']
+  styleUrls: ['./add-todo.component.scss'],
 })
 export class AddTodoComponent implements OnInit {
-
-  title!:string;
+  title!: string;
   desc!: string;
-  
+
   @Output() todoAdd: EventEmitter<Todo> = new EventEmitter();
+
+  todoForm = new FormGroup({
+    title: new FormControl('', Validators.required),
+    desc: new FormControl(''),
+  });
 
   constructor() {
     this.title = '';
     this.desc = '';
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  onSubmit() {
+  onSubmit(val: any) {
+    console.log(val);
 
-    console.log(this.title);
-    
-    if ((this.title === '') && (this.desc === '')){
+    if (val.title === '' && val.desc === '') {
       alert('Enter title and description');
     } else {
       const todo = {
         sno: 8,
-        title: this.title,
-        desc: this.desc,
-        active : true
-      }
+        title: val.title,
+        desc: val.desc,
+        active: true,
+      };
       this.todoAdd.emit(todo);
       this.title = '';
       this.desc = '';
     }
-    
   }
-
 }

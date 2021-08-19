@@ -1,4 +1,5 @@
 <div class="my-4 todo-left">
+    {{ todo | json }}
     <h4 [ngClass]="{'strike': !todo.active}">{{todo.title | titleFormate:todo.sno}}</h4>
     <p [ngClass]="{'strike': !todo.active}">{{todo.desc | titlecase}}</p>
     <div class="form-group form-check">

@@ -6,7 +6,8 @@ import { TodosComponent } from './MyComponents/todos/todos.component';
 
 const routes: Routes = [
   { path: "", component: TodosComponent },
-  { path: "about", component: AboutComponent },
+  { path: "about/:name", component: AboutComponent },
+  { path:"admin",loadChildren:()=>import('./admin/admin.module').then(mod=>mod.AdminModule) }
   // { path: "**", component: PageNotFoundComponent },
   
 ];

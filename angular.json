@@ -77,6 +77,9 @@
             },
             "development": {
               "browserTarget": "angular-todo:build:development"
+            },
+            "hmr": {
+              "browserTarget": "angular-todo:build:hmr"
             }
           },
           "defaultConfiguration": "development"
